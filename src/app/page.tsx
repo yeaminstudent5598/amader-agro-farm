@@ -1,65 +1,87 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Leaf, Globe, ShieldCheck } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex flex-col min-h-screen">
+      
+      {/* --- HERO SECTION --- */}
+      <section className="relative w-full py-20 md:py-32 bg-green-50 overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+            <div className="flex flex-col justify-center space-y-4">
+              <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-700 font-semibold w-fit">
+                🌿 100% Organic & Fresh
+              </div>
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-gray-900">
+                Taste the Authentic <br />
+                <span className="text-green-600">Flavor of Bangladesh</span>
+              </h1>
+              <p className="max-w-[600px] text-gray-600 md:text-xl">
+                We export premium quality Mangoes, Spices, and Organic Vegetables directly from farmers to your doorstep globally.
+              </p>
+              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <Link href="/shop">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                    Order Now <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="/export">
+                  <Button size="lg" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
+                    Bulk Export Inquiry
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Hero Image Placeholder (পরে এখানে রিয়েল ছবি দেবে) */}
+            <div className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last bg-gray-200 flex items-center justify-center">
+               <span className="text-gray-400">Add Hero Image Here (Mango Garden)</span>
+               {/* <Image src="/images/hero-bg.webp" width={800} height={600} alt="Mango" /> */}
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* --- FEATURES SECTION --- */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Why Choose Us?</h2>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mt-4">
+              We bridge the gap between Bangladeshi farmers and global consumers with trust.
+            </p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Feature 1 */}
+            <div className="flex flex-col items-center text-center p-6 bg-green-50 rounded-lg shadow-sm">
+              <div className="p-3 bg-green-100 rounded-full mb-4">
+                <Leaf className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold">Organic & Chemical Free</h3>
+              <p className="text-gray-500 mt-2">Sourced directly from certified gardens. No harmful preservatives.</p>
+            </div>
+            {/* Feature 2 */}
+            <div className="flex flex-col items-center text-center p-6 bg-green-50 rounded-lg shadow-sm">
+              <div className="p-3 bg-green-100 rounded-full mb-4">
+                <Globe className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold">Global Export Standard</h3>
+              <p className="text-gray-500 mt-2">We follow international packaging & shipping standards (FOB/CIF).</p>
+            </div>
+            {/* Feature 3 */}
+            <div className="flex flex-col items-center text-center p-6 bg-green-50 rounded-lg shadow-sm">
+              <div className="p-3 bg-green-100 rounded-full mb-4">
+                <ShieldCheck className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold">Trusted & Transparent</h3>
+              <p className="text-gray-500 mt-2">Track your order from farm to fork. 100% money-back guarantee.</p>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
+
     </div>
   );
 }
